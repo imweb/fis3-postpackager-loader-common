@@ -1,0 +1,12 @@
+{
+  "name": "",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "fis3 release dev -cw",
+    "build": "fis3 release dist -c"
+  },
+  "dependencies": {
+    "fis3-postpackager-loader": "*",
+    "fis3-postpackager-loader-common": "*"
+  }
+}
