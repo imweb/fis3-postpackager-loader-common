@@ -1,6 +1,6 @@
 
 module.exports = {
-    app: 'NOW直播',
-    homepage: 'http://now.qq.com'
+    app: 'fis3-postpackager-loader-common',
+    homepage: 'https://github.com/imweb/fis3-postpackager-loader-common'
 };
 

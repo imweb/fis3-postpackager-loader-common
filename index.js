@@ -31,9 +31,11 @@ function packager(ret, pack, settings, opt) {
         var res = getResource(file, ret);
         var content = [];
         res.forEach(function(dep) {
-            content.push(dep.getContent());
-            dep.map.pkg = file.getId();
-            packed[dep.getId()] = COMMON_FILE;
+            if (!packed[dep.getId()]) {
+                content.push(dep.getContent());
+                dep.map.pkg = file.getId();
+                packed[dep.getId()] = COMMON_FILE;
+            }
         });
         content.push(file.getContent());
         // 设置文件
@@ -52,7 +54,7 @@ function packager(ret, pack, settings, opt) {
 
             var inject = '';
             main.forEach(function(dep) {
-                inject += '<script src="' + dep.getUrl() + '"><!--ignore-->\n';
+                inject += '<script src="' + dep.getUrl() + '"></script><!--ignore-->\n';
                 file.links.push(dep.subpath);
             });
             var content = file.getContent().replace(rBody, function(str) {
