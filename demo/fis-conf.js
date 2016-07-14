@@ -30,9 +30,9 @@ fis.media('dist')
     .match('::package', {
         postpackager: [
             fis.plugin('loader-common', {
-                main: [
-                    '/common/lib.js'
-                ]
+                main: {
+                    '/common/lib.js': true
+                }
             }),
             fis.plugin('loader', {
                 resourceType: 'commonJs',

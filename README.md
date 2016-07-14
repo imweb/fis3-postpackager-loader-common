@@ -16,9 +16,9 @@ fis.media('dist')
     .match('::package', {
         postpackager: [
             fis.plugin('loader-common', {
-                main: [
-                    '/common/lib.js'
-                ]
+                main: {
+                    '/common/lib.js': true
+                }
             }),
             fis.plugin('loader', {
                 resourceType: 'commonJs',
@@ -36,7 +36,12 @@ fis.media('dist')
 
 ## 配置说明
 
-* `main` `{Array.<String>}` 需要单独打包文件的入口
+- `main` `{Object.<String,Object|Boolean>}` 需要单独打包文件的入口
+    - key subpath
+    - value 配置项
+        - priority `Number` `default` `0` 打包优先级
+        - order `Number` `default` `0` 嵌入html文件中的优先级
+        - all: `Boolean` `default` `false` 即使依赖已打包至优先级更高的包任然打包包含它
 
 ## Demo
 
